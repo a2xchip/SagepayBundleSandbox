@@ -1,0 +1,64 @@
+{% extends "AcmePaymentBundle::layout.html.twig" %}
+
+{% block title "Payex - View recurring payment details" %}
+
+{% block content %}
+    <div class="block">
+        Agreement status:
+        {% if agreementStatus.success %}
+            Successful
+        {% elseif agreementStatus.canceled %}
+            Canceled
+        {% elseif agreementStatus.failed %}
+            Failed
+        {% elseif agreementStatus.pending %}
+            Pending
+        {% elseif agreementStatus.expired %}
+            Expired
+        {% elseif agreementStatus.suspended %}
+            Suspended
+        {% else %}
+            Unknown
+        {% endif %}
+    </div>
+    <div class="block">
+        <ul>
+            {% for key, value in agreementStatus.model %}
+                <li>{{ key }}: {{ value|json_encode|raw }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+    {% if paymentStatus %}
+        <div class="block">
+            Recurring payment status:
+            {% if paymentStatus.success %}
+                Active
+            {% elseif paymentStatus.canceled %}
+                Canceled
+            {% elseif paymentStatus.failed %}
+                Failed
+            {% elseif paymentStatus.pending %}
+                Pending
+            {% elseif paymentStatus.expired %}
+                Expired
+            {% elseif paymentStatus.suspended %}
+                Suspended
+            {% else %}
+                Unknown
+            {% endif %}
+            
+            {% if cancelToken %}
+                &nbsp;(<a href="{{ cancelToken.targetUrl }}">Cancel</a>)
+            {% endif %}
+        </div>
+        <div class="block">
+            <ul>
+                {% for key, value in paymentStatus.model %}
+                    <li>{{ key }}: {{ value|json_encode|raw }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+    {% endif %}
+{% endblock %}
+
+{% set code = code(_self) %}

@@ -1,0 +1,55 @@
+acme_payment_homepage:
+    pattern:  /payment
+    defaults: { _controller: AcmePaymentBundle:Default:index }
+
+acme_payment_prepare_simple_purchase_authorize_net:
+    pattern:  /payment/simple_purchase/authorize_net/prepare
+    defaults: { _controller: AcmePaymentBundle:SimplePurchaseAuthorizeNetAim:prepare }
+
+acme_payment_prepare_obtain_credit_card_authorize_net:
+    pattern:  /payment/simple_purchase/authorize_net/prepare-obtain-credit-card
+    defaults: { _controller: AcmePaymentBundle:SimplePurchaseAuthorizeNetAim:prepareObtainCreditCard }
+    
+acme_payment_prepare_simple_purchase_be2bill:
+    pattern:  /payment/simple_purchase/be2bill/prepare
+    defaults: { _controller: AcmePaymentBundle:SimplePurchaseBe2Bill:prepare }
+
+acme_payment_prepare_obtain_credit_card_be2bill:
+    pattern:  /payment/simple_purchase/be2bill/prepare-obtain-credit-card
+    defaults: { _controller: AcmePaymentBundle:SimplePurchaseBe2Bill:prepareObtainCreditCard }
+
+acme_payment_prepare_simple_purchase_be2bill_onsite:
+    pattern:  /payment/simple_purchase/be2bill/prepare_onsite
+    defaults: { _controller: AcmePaymentBundle:SimplePurchaseBe2Bill:prepareOnsite }
+
+acme_payment_prepare_simple_purchase_offline:
+    pattern:  /payment/simple_purchase/offline/prepare
+    defaults: { _controller: AcmePaymentBundle:SimplePurchaseOffline:prepare }
+    
+acme_payment_prepare_simple_purchase_paypal_express_via_omnipay:
+    pattern:  /payment/simple_purchase/paypal_express_via_omnipay/prepare
+    defaults: { _controller: AcmePaymentBundle:SimplePurchasePaypalExpressViaOmnipay:prepare }
+
+acme_payment_prepare_simple_purchase_stripe_via_omnipay:
+    pattern:  /payment/simple_purchase/stripe_via_omnipay/prepare
+    defaults: { _controller: AcmePaymentBundle:SimplePurchaseStripeViaOmnipay:prepare }
+
+acme_payment_prepare_simple_purchase_paypal_pro:
+    pattern:  /payment/simple_purchase/paypal_express_pro/prepare
+    defaults: { _controller: AcmePaymentBundle:SimplePurchasePaypalPro:prepare }
+
+acme_payment_prepare_obtain_credit_card_paypal_pro:
+    pattern:  /payment/simple_purchase/paypal_express_pro/prepare-obtain-credit-card
+    defaults: { _controller: AcmePaymentBundle:SimplePurchasePaypalPro:prepareObtainCreditCard }
+
+acme_payment_details_view:
+    pattern:  /payment/details
+    defaults: { _controller: AcmePaymentBundle:Details:view }
+    
+acme_payment_notifications_list:
+    pattern:  /payment/notifications/list
+    defaults: { _controller: AcmePaymentBundle:Notifications:list }
+
+acme_payment_prepare_simple_purchase_sagepay_onsite:
+    pattern:  /payment/simple_purchase/sagepay/prepare_onsite
+    defaults: { _controller: AcmePaymentBundle:Sagepay:prepareOnsite }
